@@ -1,0 +1,84 @@
+{
+    "motivations": [
+      {
+        "id": 1,
+        "phrase": "Le seul moyen de faire du bon travail est d'aimer ce que vous faites."
+      },
+      {
+        "id": 2,
+        "phrase": "Chaque échec est une opportunité de grandir et de devenir meilleur."
+      },
+      {
+        "id": 3,
+        "phrase": "La vie est trop courte pour se contenter de la médiocrité. Visez l'excellence."
+      },
+      {
+        "id": 4,
+        "phrase": "La persévérance est la clé qui ouvre toutes les portes du succès."
+      },
+      {
+        "id": 5,
+        "phrase": "Le succès est le résultat de la discipline, du dévouement et de la détermination."
+      },
+      {
+        "id": 6,
+        "phrase": "N'ayez pas peur d'échouer, ayez peur de ne jamais essayer."
+      },
+      {
+        "id": 7,
+        "phrase": "Votre temps est limité, ne le gaspillez pas en vivant la vie de quelqu'un d'autre."
+      },
+      {
+        "id": 8,
+        "phrase": "Le succès ne vient pas à vous, vous devez le créer."
+      },
+      {
+        "id": 9,
+        "phrase": "La confiance en soi est le premier secret du succès."
+      },
+      {
+        "id": 10,
+        "phrase": "Chaque jour est une nouvelle chance de vous rapprocher de vos rêves."
+      },
+      {
+        "id": 11,
+        "phrase": "Les seules limites qui existent sont celles que vous vous imposez."
+      },
+      {
+        "id": 12,
+        "phrase": "Les obstacles ne peuvent pas vous arrêter si vous êtes déterminé à les surmonter."
+      },
+      {
+        "id": 13,
+        "phrase": "Le succès n'est pas final, l'échec n'est pas fatal : c'est le courage de continuer qui compte."
+      },
+      {
+        "id": 14,
+        "phrase": "Vos rêves ne se réaliseront que si vous avez le courage de les poursuivre."
+      },
+      {
+        "id": 15,
+        "phrase": "Les plus grandes réalisations commencent par de petits pas."
+      },
+      {
+        "id": 16,
+        "phrase": "Ne regardez pas en arrière, vous n'y allez pas."
+      },
+      {
+        "id": 17,
+        "phrase": "La motivation vous fait commencer, l'habitude vous fait continuer."
+      },
+      {
+        "id": 18,
+        "phrase": "Chaque jour est une chance de vous rapprocher de vos objectifs, ne la laissez pas passer."
+      },
+      {
+        "id": 19,
+        "phrase": "Soyez reconnaissant pour ce que vous avez maintenant tout en travaillant pour ce que vous voulez obtenir."
+      },
+      {
+        "id": 20,
+        "phrase": "Le succès est un voyage, pas une destination."
+      }
+    ]   
+}
