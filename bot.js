@@ -1,6 +1,7 @@
+require('dotenv').config();
 const fs = require('fs');
 const axios = require('axios');
-require('dotenv').config();
+const cron = require('node-cron');
 
 const TelegramBot = require('node-telegram-bot-api');
 
@@ -32,16 +33,19 @@ const getPhoto = async () => {
 
 
 bot.onText(/\/motiv/, async (msg) => {
-  const imageUrl =  await getPhoto()
-  
+  const imageUrl =  await getPhoto()  
   const chatId = msg.chat.id;
 
-  const motiv = motivations[Math.floor(Math.random() * motivations.length) + 1].phrase;
-  const resp = `
-💡😊💪
-${motiv}
-`
   // bot.sendMessage(chatId, response);
+  bot.sendPhoto(chatId, imageUrl, { caption: "Motivation 💡😊💪" })
+  .catch((error) => console.error('Error:', error));
+});
+
+
+cron.schedule('0 15 * * *', async () => {
+  const imageUrl =  await getPhoto()  
+  const chatId = msg.chat.id;
+  // Specify the chat ID where you want to send the message
   bot.sendPhoto(chatId, imageUrl, { caption: "Motivation 💡😊💪" })
   .catch((error) => console.error('Error:', error));
 });
