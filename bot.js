@@ -1,24 +1,15 @@
 require('dotenv').config();
-const fs = require('fs');
-const axios = require('axios');
-const cron = require('node-cron');
-
 const TelegramBot = require('node-telegram-bot-api');
+const cron = require('node-cron');
+const axios = require('axios');
+const express = require("express");
+const app = express();
 
+// Telegram config
 const token = process.env.TELEGRAM_TOKEN;
-
 const bot = new TelegramBot(token, { polling: true });
-let motivations = null;
 
-fs.readFile('./resources/motivations.json', 'utf8', (err, data) => {
-  if (err) {
-    console.log('File read failed:', err);
-    return;
-  }
-  motivations = JSON.parse(data).motivations;
-});
-
-
+// Get random photo from unsplash
 const getPhoto = async () => {
   const response = await axios.get(`https://api.unsplash.com/photos/random?client_id=${process.env.UNSPLASH_TOKEN}`, {
     params: {
@@ -32,20 +23,32 @@ const getPhoto = async () => {
 }
 
 
+// Match /motiv then send motivation
 bot.onText(/\/motiv/, async (msg) => {
-  const imageUrl =  await getPhoto()  
+  const imageUrl = await getPhoto()
   const chatId = msg.chat.id;
 
   // bot.sendMessage(chatId, response);
-  bot.sendPhoto(chatId, imageUrl, { caption: "Motivation 💡😊💪" })
-  .catch((error) => console.error('Error:', error));
+  bot.sendPhoto(chatId, imageUrl, { caption: `Motivation 💡😊💪` })
+    .catch((error) => console.error('Error:', error));
 });
 
+// Send motivation every 1h
+cron.schedule('* */1 * * *', async () => {
+  const imageUrl = await getPhoto()
+  const chatId = '-1001924777323';
 
-cron.schedule('0 15 * * *', async () => {
-  const imageUrl =  await getPhoto()  
-  const chatId = msg.chat.id;
   // Specify the chat ID where you want to send the message
   bot.sendPhoto(chatId, imageUrl, { caption: "Motivation 💡😊💪" })
-  .catch((error) => console.error('Error:', error));
+    .catch((error) => console.error('Error:', error));
 });
+
+
+// Express server
+app.get('/', (req, res) => {
+  res.send("Hello World!");
+})
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`)
+})
